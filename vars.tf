@@ -9,7 +9,7 @@ variable "pscloud_start_window" {}
 variable "pscloud_completion_window" {}
 variable "pscloud_recovery_point_tags" {}
 
-variable "pscloud_cold_storage_after" {}
-variable "pscloud_delete_after" {}
+variable "pscloud_cold_storage_after" { default = ""}
+variable "pscloud_delete_after" { default = ""}
 
 variable "pscloud_backup_resources" {}
