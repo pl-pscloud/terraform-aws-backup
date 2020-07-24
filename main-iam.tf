@@ -14,9 +14,11 @@ data "aws_iam_policy_document" "assume_role" {
 resource "aws_iam_role" "pscloud-iam-role" {
 
   name               = "${var.pscloud_company}_backup_selection_iam_role_for_${var.pscloud_purpose}_${var.pscloud_env}"
-
   assume_role_policy = join("", data.aws_iam_policy_document.assume_role.*.json)
-  tags               = "${var.pscloud_company}_backup_selection_iam_role_for_${var.pscloud_purpose}_${var.pscloud_env}"
+
+  tags = {
+    Name = "${var.pscloud_company}_backup_selection_iam_role_for_${var.pscloud_purpose}_${var.pscloud_env}"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "default" {
