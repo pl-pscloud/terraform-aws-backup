@@ -22,6 +22,8 @@ module "backup-vault-default" {
 }
 
 module "backup-vault-cross-region" {
+  count   = var.pscloud_enabled_cross_region == true ? 1 : 0
+
   source  = "./backup-vault"
 
   providers = {
@@ -66,7 +68,7 @@ resource "aws_backup_plan" "pscloud-backup-plan" {
             delete_after       = var.pscloud_delete_after
           }
         }
-        destination_vault_arn = module.backup-vault-cross-region.pscloud_backup_vault.arn
+        destination_vault_arn = module.backup-vault-cross-region[0].pscloud_backup_vault.arn
       }
     }
   }

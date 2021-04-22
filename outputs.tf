@@ -1,7 +1,7 @@
 output "pscloud_backup_vault" {
-  value = module.backup-vault-default.pscloud_backup_vault.name
+  value = module.backup-vault-default.pscloud_backup_vault
 }
 
 output "pscloud_backup_cross_region_vault" {
-  value = module.backup-vault-cross-region.pscloud_backup_vault.name 
+  value = var.pscloud_enabled_cross_region == true ? module.backup-vault-cross-region[0].pscloud_backup_vault : null
 }

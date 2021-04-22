@@ -18,5 +18,5 @@ variable "pscloud_delete_after" { default = null}
 
 variable "pscloud_backup_resources" {}
 
-variable "pscloud_enabled_cross_region" { default = 0 }
+variable "pscloud_enabled_cross_region" { default = false }
 variable "pscloud_kms_key_cross_region_arn" { default = null } 
